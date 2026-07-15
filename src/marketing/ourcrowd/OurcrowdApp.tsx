@@ -50,7 +50,8 @@ const EXPERIENCE = [
   },
 ];
 
-// Selected work, live links from bar_builds/site/src/portfolio/data/portfolio.ts.
+// Selected work, live links from bar_builds/site/src/portfolio/data/portfolio.ts
+// and jobs/cv.md. Ordered for a backend / full-stack + AI role.
 const WORK = [
   {
     title: "MDP",
@@ -65,10 +66,28 @@ const WORK = [
     href: "https://temporal.io/code-exchange/cross-language-data-processing-service-with-temporal",
   },
   {
+    title: "MIDI GPT REST API",
+    desc: "A Node.js multi-step generation pipeline calling OpenAI, with retries and validation at every step. An LLM workflow wired into a real API.",
+    tag: "Node · LLM",
+    href: "https://github.com/barmoshe/AI_MIDI_API",
+  },
+  {
+    title: "entailer",
+    desc: "A TypeScript logic-validity toolkit, released to npm as one six-package toolkit with its own docs site.",
+    tag: "TypeScript · npm",
+    href: "https://github.com/barmoshe/entailer",
+  },
+  {
     title: "Israelify",
     desc: "Full-stack music-streaming app. React and Node.js with authentication, streaming, and personalized playlists.",
     tag: "Full-stack",
     href: "https://github.com/Gal-Or/IsraelifyApp",
+  },
+  {
+    title: "apartment-hunter",
+    desc: "A full-stack apartment search app: listings, notes, and statuses in one flow. Next.js, live on Vercel.",
+    tag: "Full-stack · Next.js",
+    href: "https://apartment-hunter-one.vercel.app",
   },
 ];
 
@@ -216,8 +235,9 @@ export function OurcrowdApp() {
             Selected work
           </h2>
           <p className="ourcrowd-section-intro">
-            Installable, externally validated, and online. Proof the agent and
-            backend work is real, not a slide.
+            Installable, externally validated, and online. A range of Node,
+            full-stack, and LLM-pipeline work, proof the agent and backend
+            building is real, not a slide.
           </p>
           <div className="ourcrowd-work">
             {WORK.map((w, i) => (
