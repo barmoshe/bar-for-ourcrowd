@@ -1,0 +1,642 @@
+/* =========================================================================
+   OurCrowd brand, read live off ourcrowd.com (2026-07-15, getComputedStyle).
+
+   Display / lead:  Merriweather serif, 700/900   (--ourcrowd-serif)
+   UI / body:       Open Sans, 400/600/700         (--ourcrowd-font)
+   Ink:             #333333 (text + dark nav bar)
+   Green accent:    #6ECC36 (their "Join" pill), radius 5px
+   Primary CTA:     linear-gradient(to right, #03A9D7, #0186C2), radius 6px
+   Link / blue:     #0074A8
+   Hero:            near-white with a light-blue gridded candlestick / rising
+                    line-chart motif (their signature) + product mockups
+   Corners:         subtle 6px, finance-clean editorial, not rounded-playful
+   ========================================================================= */
+
+.ourcrowd-root {
+  --ourcrowd-bg: #ffffff;
+  --ourcrowd-surface: #f4f8fc; /* light blue-gray card face */
+  --ourcrowd-surface-2: #eaf2fa;
+  --ourcrowd-border: #d9e2ec; /* hairline */
+  --ourcrowd-ink: #333333; /* primary text */
+  --ourcrowd-ink-strong: #1a1d21;
+  --ourcrowd-ink-soft: #5a6572; /* secondary text */
+  --ourcrowd-nav: #333333; /* dark nav bar */
+
+  --ourcrowd-blue: #0074a8; /* link / secondary blue */
+  --ourcrowd-blue-bright: #03a9d7; /* CTA gradient start */
+  --ourcrowd-blue-deep: #0186c2; /* CTA gradient end */
+  --ourcrowd-green: #6ecc36; /* their Join accent */
+  --ourcrowd-green-deep: #5bb028;
+
+  --ourcrowd-accent: #0074a8; /* the ONE brand accent (eyebrows, rules) */
+  --ourcrowd-accent-ink: #ffffff;
+  --ourcrowd-radius: 6px;
+  --ourcrowd-maxw: 72rem;
+
+  --ourcrowd-serif-stack: var(--ourcrowd-serif), Georgia, "Times New Roman", serif;
+
+  background: var(--ourcrowd-bg);
+  color: var(--ourcrowd-ink);
+  font-family: var(--ourcrowd-font), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  min-block-size: 100svh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.ourcrowd-wrap {
+  width: 100%;
+  max-width: var(--ourcrowd-maxw);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
+}
+
+/* =====================================================================
+   NAV, full-bleed dark charcoal bar, OurCrowd's signature top strip
+   ===================================================================== */
+.ourcrowd-topbar {
+  background: var(--ourcrowd-nav);
+  color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.ourcrowd-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.85rem;
+}
+.ourcrowd-wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+}
+.ourcrowd-wordmark .ourcrowd-mark {
+  flex: none;
+  width: 26px;
+  height: 26px;
+}
+.ourcrowd-wordmark b {
+  font-weight: 700;
+}
+.ourcrowd-wordmark .ourcrowd-for {
+  color: #b9c2cc;
+  font-weight: 400;
+}
+.ourcrowd-nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 5px;
+  background: var(--ourcrowd-green);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+.ourcrowd-nav-cta:hover {
+  background: var(--ourcrowd-green-deep);
+}
+
+/* =====================================================================
+   BUTTONS
+   ===================================================================== */
+.ourcrowd-btn,
+.ourcrowd-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: var(--ourcrowd-radius);
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+.ourcrowd-btn {
+  background: linear-gradient(
+    to right,
+    var(--ourcrowd-blue-bright),
+    var(--ourcrowd-blue-deep)
+  );
+  color: #ffffff;
+  box-shadow: 0 6px 18px -8px rgba(1, 134, 194, 0.6);
+}
+.ourcrowd-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -8px rgba(1, 134, 194, 0.7);
+}
+.ourcrowd-btn-ghost {
+  background: #ffffff;
+  color: var(--ourcrowd-blue);
+  border-color: var(--ourcrowd-border);
+}
+.ourcrowd-btn-ghost:hover {
+  transform: translateY(-2px);
+  border-color: var(--ourcrowd-blue);
+}
+
+/* =====================================================================
+   SECTIONS, centered serif heads with a short blue rule (their pattern)
+   ===================================================================== */
+.ourcrowd-section {
+  padding-block: clamp(3rem, 8vw, 5.5rem);
+}
+.ourcrowd-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ourcrowd-blue);
+  margin-bottom: 0.7rem;
+}
+.ourcrowd-h2 {
+  font-family: var(--ourcrowd-serif-stack);
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--ourcrowd-ink-strong);
+  margin-bottom: 0.6rem;
+}
+.ourcrowd-h2::after {
+  content: "";
+  display: block;
+  width: 54px;
+  height: 4px;
+  margin-top: 0.9rem;
+  border-radius: 2px;
+  background: linear-gradient(
+    to right,
+    var(--ourcrowd-blue-bright),
+    var(--ourcrowd-blue-deep)
+  );
+}
+.ourcrowd-section-intro {
+  color: var(--ourcrowd-ink-soft);
+  max-width: 60ch;
+  margin-top: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+/* =====================================================================
+   HERO, light-blue gridded chart backdrop + serif headline + centerpiece
+   ===================================================================== */
+.ourcrowd-hero-band {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #e7f1fb 0%, #f2f8fd 55%, #ffffff 100%);
+  border-bottom: 1px solid var(--ourcrowd-border);
+}
+.ourcrowd-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.55;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.35) 34%,
+    #000 60%
+  );
+  mask-image: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.35) 34%,
+    #000 60%
+  );
+}
+.ourcrowd-hero {
+  position: relative;
+  display: grid;
+  gap: clamp(1.5rem, 5vw, 3.5rem);
+  align-items: center;
+  padding-block: clamp(2.75rem, 8vw, 5.5rem);
+}
+@media (min-width: 900px) {
+  .ourcrowd-hero {
+    grid-template-columns: 1.05fr 0.95fr;
+  }
+}
+.ourcrowd-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(0, 116, 168, 0.1);
+  border: 1px solid rgba(0, 116, 168, 0.25);
+  color: var(--ourcrowd-blue);
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 1.1rem;
+}
+.ourcrowd-hero-eyebrow i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ourcrowd-green);
+  display: inline-block;
+}
+.ourcrowd-hero h1 {
+  font-family: var(--ourcrowd-serif-stack);
+  font-size: clamp(2.1rem, 5.2vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: -0.01em;
+  color: var(--ourcrowd-ink-strong);
+}
+.ourcrowd-hero h1 .ourcrowd-blue-word {
+  color: var(--ourcrowd-blue);
+}
+.ourcrowd-hero .ourcrowd-lede {
+  margin-top: 1.25rem;
+  color: var(--ourcrowd-ink-soft);
+  max-width: 46ch;
+  font-size: 1.08rem;
+}
+.ourcrowd-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.9rem;
+}
+.ourcrowd-centerpiece {
+  position: relative;
+}
+
+/* =====================================================================
+   CARD GRID, focus areas
+   ===================================================================== */
+.ourcrowd-grid {
+  display: grid;
+  gap: 1.1rem;
+  grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
+}
+.ourcrowd-card {
+  background: #ffffff;
+  border: 1px solid var(--ourcrowd-border);
+  border-radius: var(--ourcrowd-radius);
+  padding: 1.5rem;
+  box-shadow: 0 1px 2px rgba(16, 40, 70, 0.04);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+.ourcrowd-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 116, 168, 0.4);
+  box-shadow: 0 14px 30px -18px rgba(16, 40, 70, 0.35);
+}
+.ourcrowd-card-ic {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.9rem;
+  color: var(--ourcrowd-blue);
+}
+.ourcrowd-card h3 {
+  font-family: var(--ourcrowd-serif-stack);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ourcrowd-ink-strong);
+  margin-bottom: 0.5rem;
+}
+.ourcrowd-card p {
+  color: var(--ourcrowd-ink-soft);
+  font-size: 0.96rem;
+}
+
+/* =====================================================================
+   EXPERIENCE + EDUCATION timeline
+   ===================================================================== */
+.ourcrowd-timeline {
+  display: grid;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+.ourcrowd-tl-item {
+  display: grid;
+  gap: 0.2rem;
+  padding: 1.15rem 1.35rem;
+  background: var(--ourcrowd-surface);
+  border: 1px solid var(--ourcrowd-border);
+  border-left: 4px solid var(--ourcrowd-blue);
+  border-radius: var(--ourcrowd-radius);
+}
+.ourcrowd-tl-item .ourcrowd-tl-role {
+  font-weight: 700;
+  color: var(--ourcrowd-ink-strong);
+}
+.ourcrowd-tl-item .ourcrowd-tl-meta {
+  font-size: 0.85rem;
+  color: var(--ourcrowd-blue);
+  font-weight: 600;
+}
+.ourcrowd-tl-item p {
+  color: var(--ourcrowd-ink-soft);
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+}
+.ourcrowd-edu {
+  margin-top: 1.4rem;
+  color: var(--ourcrowd-ink-soft);
+  font-size: 0.95rem;
+}
+.ourcrowd-edu b {
+  color: var(--ourcrowd-ink-strong);
+}
+
+/* =====================================================================
+   SELECTED WORK
+   ===================================================================== */
+.ourcrowd-work {
+  display: grid;
+  gap: 0.85rem;
+}
+.ourcrowd-work a {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  padding: 1.15rem 1.4rem;
+  background: #ffffff;
+  border: 1px solid var(--ourcrowd-border);
+  border-radius: var(--ourcrowd-radius);
+  text-decoration: none;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.15s ease;
+}
+.ourcrowd-work a:hover {
+  border-color: var(--ourcrowd-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px -18px rgba(16, 40, 70, 0.4);
+}
+.ourcrowd-work-title {
+  font-family: var(--ourcrowd-serif-stack);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--ourcrowd-ink-strong);
+}
+.ourcrowd-work-desc {
+  grid-column: 1 / -1;
+  color: var(--ourcrowd-ink-soft);
+  font-size: 0.93rem;
+}
+.ourcrowd-work-tag {
+  justify-self: end;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ourcrowd-blue);
+  white-space: nowrap;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid rgba(0, 116, 168, 0.3);
+  border-radius: 999px;
+}
+
+/* =====================================================================
+   CONTACT close, on the blue-gradient band like their CTA sections
+   ===================================================================== */
+.ourcrowd-close-band {
+  background: linear-gradient(120deg, #0a2540 0%, #0074a8 55%, #0186c2 100%);
+  color: #ffffff;
+}
+.ourcrowd-close-band .ourcrowd-h2 {
+  color: #ffffff;
+}
+.ourcrowd-close-band .ourcrowd-h2::after {
+  background: var(--ourcrowd-green);
+}
+.ourcrowd-close-band .ourcrowd-section-intro {
+  color: rgba(255, 255, 255, 0.85);
+}
+.ourcrowd-close-band .ourcrowd-btn {
+  background: var(--ourcrowd-green);
+  box-shadow: 0 8px 22px -10px rgba(0, 0, 0, 0.5);
+}
+.ourcrowd-close-band .ourcrowd-btn-ghost {
+  background: transparent;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.ourcrowd-close-band .ourcrowd-btn-ghost:hover {
+  border-color: #ffffff;
+}
+
+/* =====================================================================
+   FOOTER
+   ===================================================================== */
+.ourcrowd-foot {
+  background: var(--ourcrowd-nav);
+  color: #aeb6bf;
+  padding-block: 2rem;
+  font-size: 0.85rem;
+}
+.ourcrowd-foot a {
+  color: #dfe4e9;
+}
+
+/* =====================================================================
+   CENTERPIECE, the "Deal Evaluation Agent" product panel
+   ===================================================================== */
+.ourcrowd-panel {
+  background: #ffffff;
+  border: 1px solid var(--ourcrowd-border);
+  border-radius: 12px;
+  box-shadow:
+    0 30px 60px -30px rgba(10, 37, 64, 0.35),
+    0 2px 6px rgba(10, 37, 64, 0.06);
+  overflow: hidden;
+}
+.ourcrowd-panel-head {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.85rem 1.1rem;
+  background: var(--ourcrowd-nav);
+  color: #ffffff;
+}
+.ourcrowd-panel-dots {
+  display: inline-flex;
+  gap: 0.4rem;
+}
+.ourcrowd-panel-dots i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.28);
+}
+.ourcrowd-panel-title {
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: 0.01em;
+}
+.ourcrowd-panel-live {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #b7e59a;
+}
+.ourcrowd-panel-live em {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ourcrowd-green);
+  display: inline-block;
+}
+.ourcrowd-panel-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0.6rem;
+  display: grid;
+  gap: 0.5rem;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    repeating-linear-gradient(
+        0deg,
+        rgba(0, 116, 168, 0.05) 0 1px,
+        transparent 1px 24px
+      )
+      border-box;
+}
+.ourcrowd-step {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--ourcrowd-border);
+  border-radius: 8px;
+  background: #ffffff;
+}
+.ourcrowd-step-n {
+  font-family: var(--ourcrowd-font), monospace;
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: #ffffff;
+  background: linear-gradient(
+    to bottom right,
+    var(--ourcrowd-blue-bright),
+    var(--ourcrowd-blue-deep)
+  );
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+}
+.ourcrowd-step-body {
+  display: grid;
+  gap: 0.1rem;
+}
+.ourcrowd-step-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ourcrowd-ink-strong);
+}
+.ourcrowd-step-sub {
+  font-size: 0.82rem;
+  color: var(--ourcrowd-ink-soft);
+}
+.ourcrowd-step-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  color: var(--ourcrowd-blue);
+  background: rgba(0, 116, 168, 0.1);
+}
+.ourcrowd-step-running .ourcrowd-step-tag {
+  color: var(--ourcrowd-blue-deep);
+  background: rgba(3, 169, 215, 0.16);
+}
+.ourcrowd-step-gated {
+  border-color: rgba(110, 204, 54, 0.55);
+  background: rgba(110, 204, 54, 0.06);
+}
+.ourcrowd-step-gated .ourcrowd-step-n {
+  background: linear-gradient(
+    to bottom right,
+    var(--ourcrowd-green),
+    var(--ourcrowd-green-deep)
+  );
+}
+.ourcrowd-step-gated .ourcrowd-step-tag {
+  color: #3f7d13;
+  background: rgba(110, 204, 54, 0.2);
+}
+.ourcrowd-panel-foot {
+  margin: 0;
+  padding: 0.85rem 1.1rem;
+  border-top: 1px solid var(--ourcrowd-border);
+  background: var(--ourcrowd-surface);
+  color: var(--ourcrowd-ink-soft);
+  font-size: 0.82rem;
+}
+
+/* =====================================================================
+   HERO backdrop + centerpiece animation (reduced-motion safe)
+   ===================================================================== */
+@media (prefers-reduced-motion: no-preference) {
+  .ourcrowd-anim-draw {
+    stroke-dasharray: var(--len, 600);
+    stroke-dashoffset: var(--len, 600);
+    animation: ourcrowd-draw 2.2s ease forwards;
+  }
+  .ourcrowd-anim-rise {
+    transform-box: fill-box;
+    transform-origin: bottom;
+    animation: ourcrowd-rise 0.7s ease backwards;
+  }
+  .ourcrowd-anim-pulse {
+    animation: ourcrowd-pulse 2.4s ease-in-out infinite;
+  }
+}
+@keyframes ourcrowd-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes ourcrowd-rise {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+@keyframes ourcrowd-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
