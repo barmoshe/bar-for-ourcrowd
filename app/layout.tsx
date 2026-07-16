@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Merriweather, Open_Sans } from "next/font/google";
 import "@/src/marketing/ourcrowd/marketing-base.css";
 import "@/src/marketing/ourcrowd/ourcrowd.css";
@@ -40,7 +41,13 @@ export default function RootLayout({
       dir="ltr"
       className={`${brandSerif.variable} ${brandSans.variable}`}
     >
-      <body>{children}</body>
+      <body>
+    <Script
+      src="https://bar-for-companies.vercel.app/track.js"
+      data-bar-for-id="ourcrowd"
+      strategy="afterInteractive"
+    />
+{children}</body>
     </html>
   );
 }
